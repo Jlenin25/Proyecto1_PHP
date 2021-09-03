@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ServiciosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
+
+Route::get('servicios', [ServiciosController::class, 'index']);
+
+Route::get('servicios/create', [ServiciosController::class, 'create']);
+
+Route::get('servicios/{servicio}', [ServiciosController::class, 'show']);
